@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Pathwyze helps teams redesign workflows with Notion, Lark, AI agents, and agentic workflows.">
+    <!-- Open Graph for sharing -->
+    <meta property="og:title" content="Pathwyze | Workflow Redesign Consultancy">
+    <meta property="og:description"
+        content="We redesign workflows, collaboration systems, and agentic execution for modern teams.">
+    <meta property="og:type" content="website">
+
+    <title>Pathwyze | Notion & Lark Consultancy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="./v2/styles.css">
+    <!-- Styles extracted to ./v2/styles.css -->
+</head>
+
+<body class="selection:bg-neutral-800 selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full glass-nav z-50 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3 cursor-pointer group" data-action="home" role="button" tabindex="0"
+                aria-label="Back to home">
+                <div
+                    class="w-7 h-7 bg-black rounded flex items-center justify-center text-[9px] text-white font-bold group-hover:scale-105 transition-transform">
+                    PW
+                </div>
+                <span class="font-bold tracking-tight text-lg">Pathwyze</span>
+            </div>
+
+            <div class="flex items-center gap-4 md:gap-8">
+                <!-- Desktop Links -->
+                <div class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide">
+                    <a href="#services" data-i18n="nav_services"
+                        class="text-neutral-500 hover:text-black transition-colors">Services</a>
+                    <a href="./cases.html" data-i18n="nav_work" class="text-neutral-500 hover:text-black transition-colors">Our
+                        Work</a>
+                    <a href="#team" data-i18n="nav_team"
+                        class="text-neutral-500 hover:text-black transition-colors">Team</a>
+                </div>
+
+                <!-- Language Switcher -->
+                <div class="flex items-center gap-2 text-[10px] font-bold tracking-widest border-l pl-4 border-neutral-200">
+                    <button data-lang="en" class="lang-btn text-neutral-400 hover:text-black transition-colors">EN</button>
+                    <button data-lang="zh-cn" class="lang-btn text-neutral-400 hover:text-black transition-colors ml-1">简</button>
+                    <button data-lang="zh-tw" class="lang-btn text-neutral-400 hover:text-black transition-colors ml-1">繁</button>
+                </div>
+
+                <a href="mailto:hello@pathwyze.com" data-i18n="cta_nav"
+                    class="hidden md:flex items-center gap-2 px-5 py-2.5 btn-black rounded-lg text-xs uppercase tracking-widest font-bold">
+                    Book a Consultation
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn"
+                    class="md:hidden z-[60] relative w-8 h-8 flex flex-col justify-center items-end gap-1.5 focus:outline-none"
+                    aria-label="Open menu" aria-expanded="false">
+                    <span class="w-6 h-[1.5px] bg-black transition-all duration-300 transform origin-right"></span>
+                    <span class="w-4 h-[1.5px] bg-black transition-all duration-300 transform origin-right peer"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Fullscreen Mobile Menu -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-white/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="flex flex-col items-center gap-8 text-3xl font-bold tracking-tight">
+            <a href="#services" class="mobile-link hover:text-neutral-500 transition-colors"
+                data-i18n="nav_services">Services</a>
+                    <a href="./cases.html" class="mobile-link hover:text-neutral-500 transition-colors" data-i18n="nav_work">Our
+                Work</a>
+            <a href="#team" class="mobile-link hover:text-neutral-500 transition-colors" data-i18n="nav_team">Team</a>
+            <a href="mailto:hello@pathwyze.com"
+                class="mt-8 px-8 py-4 btn-black rounded-xl text-sm uppercase tracking-widest font-bold w-full text-center"
+                data-i18n="cta_nav">Book a Consultation</a>
+        </div>
+    </div>
+
+    <!-- MAIN HOME VIEW -->
+    <main id="home-view" class="animate-fade">
+        <!-- Background decorative blob (Subtle) -->
+        <div
+            class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1000px] h-[600px] bg-gradient-to-br from-neutral-100 to-transparent blur-3xl -z-10 rounded-full opacity-50 pointer-events-none">
+        </div>
+
+        <!-- Hero Section -->
+        <header class="hero-shell pt-48 pb-24 px-6 max-w-5xl mx-auto text-center reveal active">
+            <div class="hero-diagram" aria-hidden="true">
+                <span class="hero-node hero-node-1"></span>
+                <span class="hero-node hero-node-2"></span>
+                <span class="hero-node hero-node-3"></span>
+                <span class="hero-node hero-node-4"></span>
+                <span class="hero-node hero-node-5"></span>
+                <span class="hero-link hero-link-1"></span>
+                <span class="hero-link hero-link-2"></span>
+                <span class="hero-link hero-link-3"></span>
+                <span class="hero-panel hero-panel-1"></span>
+                <span class="hero-panel hero-panel-2"></span>
+            </div>
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-neutral-200 shadow-sm text-[10px] font-bold uppercase tracking-widest text-neutral-500 mb-8">
+                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                <span data-i18n="hero_eyebrow">AI consultancy for modern teams</span>
+            </div>
+            <h1 data-i18n="hero_title"
+                class="text-5xl md:text-7xl lg:text-[80px] font-extrabold tracking-tighter mb-8 leading-[1.05] text-transparent bg-clip-text bg-gradient-to-b from-black to-neutral-700">
+                Launch an <span class="hero-keyword hero-keyword-ai">AI</span>-era <span class="hero-keyword hero-keyword-revolution">Productivity Revolution</span> for your team.
+            </h1>
+            <p data-i18n="hero_sub"
+                class="text-neutral-500 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
+                We help teams turn fragmented, inefficient, people-dependent processes into an operating system that truly supports growth through Notion, Lark, AI agents, and agentic workflows.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="mailto:hello@pathwyze.com" data-i18n="cta_hero_1"
+                    class="w-full sm:w-auto px-8 py-4 btn-black rounded-xl font-medium text-sm flex items-center justify-center gap-2">
+                    Book a Consultation <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+                <a href="./cases.html" data-i18n="cta_hero_2" class="w-full sm:w-auto px-8 py-4 btn-outline rounded-xl font-medium text-sm">
+                    View Case Studies
+                </a>
+            </div>
+            <div class="hero-signals reveal active">
+                <div class="hero-signal"><span class="hero-signal-dot"></span><span data-i18n="hero_signal_1">Workflow Redesign</span></div>
+                <div class="hero-signal"><span class="hero-signal-dot"></span><span data-i18n="hero_signal_2">Collaboration Systems</span></div>
+                <div class="hero-signal"><span class="hero-signal-dot"></span><span data-i18n="hero_signal_3">Agentic Execution</span></div>
+            </div>
+        </header>
+
+        <!-- Value Prop / Expertise -->
+        <section class="section-padding bg-white relative z-10 border-t border-neutral-100">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-6 md:gap-8">
+                    <!-- Card 1 -->
+                    <div
+                        class="glass-card service-card p-10 rounded-[32px] flex flex-col items-start space-y-8 transition-transform duration-500 hover:-translate-y-2 group reveal">
+                        <div class="service-card-index">01</div>
+                        <div
+                            class="w-14 h-14 flex items-center justify-center bg-white rounded-2xl border border-neutral-100 text-neutral-800 shadow-sm group-hover:bg-black group-hover:text-white transition-all duration-300">
+                            <i data-lucide="globe-2" class="w-6 h-6"></i>
+                        </div>
+                        <div class="space-y-4">
+                            <h3 data-i18n="val_1_title" class="text-2xl font-bold tracking-tight">Business Workflow Redesign</h3>
+                            <p data-i18n="val_1_desc" class="text-neutral-500 leading-relaxed text-sm">Map how your team collaborates, how information moves, and where execution gets stuck, then rebuild fragmented, inefficient, people-dependent processes into a clearer and more reliable operating model.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div
+                        class="glass-card service-card p-10 rounded-[32px] flex flex-col items-start space-y-8 transition-transform duration-500 hover:-translate-y-2 group reveal reveal-delay-1">
+                        <div class="service-card-index">02</div>
+                        <div
+                            class="w-14 h-14 flex items-center justify-center bg-white rounded-2xl border border-neutral-100 text-neutral-800 shadow-sm group-hover:bg-black group-hover:text-white transition-all duration-300">
+                            <i data-lucide="layers" class="w-6 h-6"></i>
+                        </div>
+                        <div class="space-y-4">
+                            <h3 data-i18n="val_2_title" class="text-2xl font-bold tracking-tight">Collaboration System Design and Implementation</h3>
+                            <p data-i18n="val_2_desc" class="text-neutral-500 leading-relaxed text-sm">Build a unified collaboration system with Notion, Lark, and Feishu by bringing project management, knowledge management, content collaboration, customer follow-up, and internal processes into one place.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div
+                        class="glass-card service-card service-card-featured p-10 rounded-[32px] flex flex-col items-start space-y-8 transition-transform duration-500 hover:-translate-y-2 group reveal reveal-delay-2">
+                        <div class="service-card-index">03</div>
+                        <div
+                            class="w-14 h-14 flex items-center justify-center bg-white rounded-2xl border border-neutral-100 text-neutral-800 shadow-sm group-hover:bg-black group-hover:text-white transition-all duration-300">
+                            <i data-lucide="zap" class="w-6 h-6"></i>
+                        </div>
+                        <div class="space-y-4">
+                            <h3 data-i18n="val_3_title" class="text-2xl font-bold tracking-tight">AI Agent-Driven Workflow Upgrades</h3>
+                            <p data-i18n="val_3_desc" class="text-neutral-500 leading-relaxed text-sm">Deploy AI agents and agentic workflows to take over high-frequency, repetitive, low-value process tasks, so your team can focus on higher-value judgment and execution.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners / Logos -->
+        <section class="section-padding pt-16 pb-24 max-w-6xl mx-auto">
+            <div class="text-center mb-10 reveal">
+                <h2 data-i18n="partners_title" class="text-2xl md:text-3xl font-bold tracking-tighter">Trusted by teams who ship</h2>
+                <p data-i18n="partners_sub" class="text-neutral-500 mt-3 max-w-2xl mx-auto">Selected brands we have worked with across workflow redesign and implementation.</p>
+            </div>
+
+            <div class="partners-strip reveal">
+                <div class="partners-grid" data-partners-grid></div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section id="services" class="section-padding max-w-5xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 data-i18n="pricing_title" class="text-4xl font-bold tracking-tighter mb-4">Engagement Models</h2>
+                <p data-i18n="pricing_sub" class="text-neutral-500">Choose the level of redesign and implementation your team needs.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Tier 1 -->
+                <div
+                    class="engagement-card p-10 border border-neutral-200 bg-white rounded-[32px] space-y-6 flex flex-col justify-between hover:shadow-xl transition-shadow duration-300 reveal">
+                    <div>
+                        <p data-i18n="tier_1_level" class="engagement-level">Level 1 · Core</p>
+                        <h3 data-i18n="tier_1_title" class="text-2xl font-bold mt-2">Core Build</h3>
+                        <p data-i18n="tier_1_desc" class="text-neutral-500 mt-4 text-sm leading-relaxed">For teams that need to get core workflows running reliably. Covers 1-2 critical workflows with system setup and foundational automation.</p>
+                        <div class="engagement-meta">
+                            <span data-i18n="pricing_fit_label" class="engagement-meta-label">Best for</span>
+                            <p data-i18n="tier_1_fit" class="engagement-meta-value">Teams building a stronger operating foundation</p>
+                        </div>
+                    </div>
+                    <div class="pt-8 border-t border-neutral-100">
+                        <p data-i18n="tier_1_price" class="text-3xl font-bold tracking-tight mb-6">Start with $5,000</p>
+                        <a href="mailto:hello@pathwyze.com" data-i18n="tier_1_cta" class="flex justify-center py-3.5 btn-outline rounded-xl text-sm font-semibold">Book
+                            Core Build</a>
+                    </div>
+                </div>
+
+                <!-- Tier 2 -->
+                <div
+                    class="engagement-card engagement-card-featured p-10 rounded-[32px] space-y-6 flex flex-col justify-between shadow-2xl relative overflow-hidden reveal reveal-delay-1">
+                    <div
+                        class="absolute top-0 right-0 w-64 h-64 bg-white/40 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2">
+                    </div>
+                    <div class="relative z-10">
+                        <p data-i18n="tier_2_level" class="engagement-level">Level 2 · Growth</p>
+                        <h3 data-i18n="tier_2_title" class="text-2xl font-bold mt-2">Growth Build</h3>
+                        <p data-i18n="tier_2_desc" class="text-neutral-600 mt-4 text-sm leading-relaxed">For growth-stage teams. End-to-end redesign of 2-4 critical workflows, connecting process, collaboration, data, and agentic workflows.</p>
+                        <div class="engagement-meta engagement-meta-dark">
+                            <span data-i18n="pricing_fit_label" class="engagement-meta-label">Best for</span>
+                            <p data-i18n="tier_2_fit" class="engagement-meta-value">Teams redesigning how work runs around growth</p>
+                        </div>
+                    </div>
+                    <div class="pt-8 border-t border-neutral-200 relative z-10">
+                        <p data-i18n="tier_2_price" class="text-3xl font-bold tracking-tight mb-6">Start with $12,000</p>
+                        <a href="mailto:hello@pathwyze.com" data-i18n="tier_2_cta"
+                            class="flex justify-center py-3.5 btn-black rounded-xl text-sm font-semibold">Book
+                            Growth Build</a>
+                    </div>
+                </div>
+
+                <!-- Tier 3 -->
+                <div
+                    class="engagement-card p-10 border border-neutral-200 bg-white rounded-[32px] space-y-6 flex flex-col justify-between hover:shadow-xl transition-shadow duration-300 reveal reveal-delay-2">
+                    <div>
+                        <p data-i18n="tier_3_level" class="engagement-level">Level 3 · Enterprise</p>
+                        <h3 data-i18n="tier_3_title" class="text-2xl font-bold mt-2">Enterprise Transformation</h3>
+                        <p data-i18n="tier_3_desc" class="text-neutral-500 mt-4 text-sm leading-relaxed">For organization-level transformation. Includes custom software development, ERP transformation, and outsourced team support for scalable long-term operations.</p>
+                        <div class="engagement-meta">
+                            <span data-i18n="pricing_fit_label" class="engagement-meta-label">Best for</span>
+                            <p data-i18n="tier_3_fit" class="engagement-meta-value">Organizations requiring complex system and execution upgrades</p>
+                        </div>
+                    </div>
+                    <div class="pt-8 border-t border-neutral-100">
+                        <p data-i18n="tier_3_price" class="text-3xl font-bold tracking-tight mb-6">Start with $30,000</p>
+                        <a href="mailto:hello@pathwyze.com" data-i18n="tier_3_cta" class="flex justify-center py-3.5 btn-outline rounded-xl text-sm font-semibold">Book
+                            Enterprise Track</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Studies Grid -->
+        <section id="work" class="section-padding bg-white relative">
+            <div class="max-w-6xl mx-auto">
+                <div class="mb-12 reveal">
+                    <h2 data-i18n="case_title" class="text-4xl font-bold tracking-tighter">Selected Work</h2>
+                    <p data-i18n="case_intro" class="text-neutral-500 mt-2">See how we turn messy workflows into systems that actually run.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <a href="./cases.html#case_1" class="case-card group cursor-pointer reveal" aria-label="Open case study: Project Management OS">
+                        <div
+                            class="aspect-[4/3] bg-neutral-100 rounded-[24px] mb-6 overflow-hidden relative border border-neutral-100 shadow-sm group-hover:shadow-md transition-all duration-500">
+                            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                alt="Dashboard"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500"></div>
+                            <div class="absolute bottom-4 left-4 flex flex-col items-start gap-2">
+                                <span data-i18n="case_featured_tag" class="bg-white/90 backdrop-blur text-black px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-widest shadow-sm">
+                                    Selected Work
+                                </span>
+                                <span data-i18n="case_1_result" class="case-result-pill">Execution stabilized</span>
+                            </div>
+                        </div>
+                        <h4 data-i18n="case_1_title" class="font-bold text-xl group-hover:text-neutral-600 transition-colors tracking-tight">Turn project management into a system that actually runs</h4>
+                        <p data-i18n="case_1_desc" class="text-neutral-500 text-sm mt-2">Restructure task flows, collaboration chains, and information sync so execution no longer depends on people holding everything together manually.</p>
+                    </a>
+
+                    <a href="./cases.html#case_2" class="case-card group cursor-pointer reveal reveal-delay-1" aria-label="Open case study: CRM Pipeline">
+                        <div
+                            class="aspect-[4/3] bg-neutral-100 rounded-[24px] mb-6 overflow-hidden relative border border-neutral-100 shadow-sm group-hover:shadow-md transition-all duration-500">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                alt="CRM" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500"></div>
+                            <div class="absolute bottom-4 left-4 flex flex-col items-start gap-2">
+                                <span data-i18n="case_featured_tag" class="bg-white/90 backdrop-blur text-black px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-widest shadow-sm">
+                                    Selected Work
+                                </span>
+                                <span data-i18n="case_2_result" class="case-result-pill">Follow-up centralized</span>
+                            </div>
+                        </div>
+                        <h4 data-i18n="case_2_title" class="font-bold text-xl group-hover:text-neutral-600 transition-colors tracking-tight">Bring customer follow-up into one unified system</h4>
+                        <p data-i18n="case_2_desc" class="text-neutral-500 text-sm mt-2">Create a clearer system for lead intake, assignment, follow-up, and management to reduce information gaps and execution misses.</p>
+                    </a>
+
+                    <a href="./cases.html#case_3" class="case-card group cursor-pointer reveal reveal-delay-2" aria-label="Open case study: Content Calendar">
+                        <div
+                            class="aspect-[4/3] bg-neutral-100 rounded-[24px] mb-6 overflow-hidden relative border border-neutral-100 shadow-sm group-hover:shadow-md transition-all duration-500">
+                            <img src="https://images.unsplash.com/photo-1616469829581-73993eb86b02?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                alt="Calendar" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500"></div>
+                            <div class="absolute bottom-4 left-4 flex flex-col items-start gap-2">
+                                <span data-i18n="case_featured_tag" class="bg-white/90 backdrop-blur text-black px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-widest shadow-sm">
+                                    Selected Work
+                                </span>
+                                <span data-i18n="case_3_result" class="case-result-pill">Publishing systemized</span>
+                            </div>
+                        </div>
+                        <h4 data-i18n="case_3_title" class="font-bold text-xl group-hover:text-neutral-600 transition-colors tracking-tight">Put content production and publishing into one operating model</h4>
+                        <p data-i18n="case_3_desc" class="text-neutral-500 text-sm mt-2">Integrate topics, assets, collaboration, and scheduling so multi-channel content operations become more stable and repeatable.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team -->
+        <section id="team" class="section-padding max-w-6xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 data-i18n="team_title" class="text-4xl font-bold tracking-tighter mb-4">Who You Work With</h2>
+                <p data-i18n="team_sub" class="text-neutral-500">A small senior team focused on workflow redesign, system implementation, and operational clarity.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
+                <!-- Person 1 -->
+                <div class="team-card flex flex-col items-center text-center space-y-5 reveal">
+                    <div
+                        class="team-avatar-frame bg-neutral-100 rounded-full flex items-center justify-center overflow-hidden border border-neutral-200 shadow-sm">
+                        <img src="./images/Julien%20Zhou.png" alt="Julien Zhou" class="team-avatar-img team-avatar-julien" loading="lazy">
+                    </div>
+                    <div>
+                        <p data-i18n="team_1_focus" class="team-focus">Workflow Strategy</p>
+                        <h4 data-i18n="team_1_name" class="text-xl font-bold">Julien Zhou</h4>
+                        <p data-i18n="team_1_role" class="text-neutral-400 text-xs uppercase tracking-widest font-bold mt-1 mb-5">Lead
+                            Consultant</p>
+                        <a href="#" class="inline-flex items-center gap-2 px-5 py-2 btn-outline rounded-full text-[10px] font-bold">
+                            <i data-lucide="linkedin" class="w-3 h-3"></i> <span data-i18n="linkedin_btn">LINKEDIN</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Person 2 -->
+                <div class="team-card flex flex-col items-center text-center space-y-5 reveal reveal-delay-1">
+                    <div
+                        class="team-avatar-frame bg-neutral-100 rounded-full flex items-center justify-center overflow-hidden border border-neutral-200 shadow-sm">
+                        <img src="./images/Bobby%20Zhang.png" alt="Bobby Zhang" class="team-avatar-img team-avatar-bobby" loading="lazy">
+                    </div>
+                    <div>
+                        <p data-i18n="team_2_focus" class="team-focus">System Architecture</p>
+                        <h4 data-i18n="team_2_name" class="text-xl font-bold">Bobby Zhang</h4>
+                        <p data-i18n="team_2_role" class="text-neutral-400 text-xs uppercase tracking-widest font-bold mt-1 mb-5">Operations
+                            Strategist</p>
+                        <a href="#" class="inline-flex items-center gap-2 px-5 py-2 btn-outline rounded-full text-[10px] font-bold">
+                            <i data-lucide="linkedin" class="w-3 h-3"></i> <span data-i18n="linkedin_btn">LINKEDIN</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Person 3 -->
+                <div class="team-card flex flex-col items-center text-center space-y-5 reveal reveal-delay-2">
+                    <div
+                        class="team-avatar-frame bg-neutral-100 rounded-full flex items-center justify-center overflow-hidden border border-neutral-200 shadow-sm">
+                        <img src="./images/BigSong%20Niu.png" alt="BigSong Niu" class="team-avatar-img team-avatar-bigsong" loading="lazy">
+                    </div>
+                    <div>
+                        <p data-i18n="team_3_focus" class="team-focus">Operational Execution</p>
+                        <h4 data-i18n="team_3_name" class="text-xl font-bold">BigSong Niu</h4>
+                        <p data-i18n="team_3_role" class="text-neutral-400 text-xs uppercase tracking-widest font-bold mt-1 mb-5">Systems
+                            Architect</p>
+                        <a href="#" class="inline-flex items-center gap-2 px-5 py-2 btn-outline rounded-full text-[10px] font-bold">
+                            <i data-lucide="linkedin" class="w-3 h-3"></i> <span data-i18n="linkedin_btn">LINKEDIN</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- CASE STUDY DETAIL VIEW -->
+    <main id="case-view" class="hidden-view animate-fade pt-32 pb-20">
+        <div class="max-w-4xl mx-auto px-6">
+            <!-- Breadcrumbs -->
+            <button data-action="home"
+                class="inline-flex items-center gap-2 text-neutral-400 hover:text-black mb-10 text-sm font-medium transition-colors">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                <span data-i18n="back_to_cases">Back to Case Studies</span>
+            </button>
+
+            <!-- Case Header -->
+            <div class="space-y-6 mb-16">
+                <div id="case-detail-tag"
+                    class="inline-block px-3 py-1.5 bg-neutral-100/80 border border-neutral-200 text-[10px] font-bold uppercase tracking-widest rounded-lg">
+                    Tag</div>
+                <h1 id="case-detail-title" class="text-4xl md:text-6xl font-extrabold tracking-tighter leading-tight">Case Title Placeholder</h1>
+                <p id="case-detail-sub" class="text-xl text-neutral-500 font-light leading-relaxed max-w-2xl">Detailed
+                    sub-headline for the case study goes here.</p>
+            </div>
+
+            <!-- Impact Stats Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
+                <div class="p-6 bg-white rounded-2xl border border-neutral-100 shadow-[0_2px_10px_rgba(0,0,0,0.02)] text-center">
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-2" data-i18n="stat_efficiency">Efficiency</p>
+                    <p class="text-3xl font-bold tracking-tight text-black">+45%</p>
+                </div>
+                <div class="p-6 bg-white rounded-2xl border border-neutral-100 shadow-[0_2px_10px_rgba(0,0,0,0.02)] text-center">
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-2" data-i18n="stat_cost">Cost Saved</p>
+                    <p class="text-3xl font-bold tracking-tight text-black">20k<span class="text-sm font-normal text-neutral-400">/mo</span></p>
+                </div>
+                <div class="p-6 bg-white rounded-2xl border border-neutral-100 shadow-[0_2px_10px_rgba(0,0,0,0.02)] text-center">
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-2" data-i18n="stat_adoption">Adoption</p>
+                    <p class="text-3xl font-bold tracking-tight text-black">100%</p>
+                </div>
+                <div class="p-6 bg-white rounded-2xl border border-neutral-100 shadow-[0_2px_10px_rgba(0,0,0,0.02)] text-center">
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-2" data-i18n="stat_time">Setup Time</p>
+                    <p class="text-3xl font-bold tracking-tight text-black">3<span class="text-sm font-normal text-neutral-400"> wks</span></p>
+                </div>
+            </div>
+
+            <!-- Content Body -->
+            <div class="grid md:grid-cols-3 gap-16">
+                <div class="md:col-span-2 space-y-12">
+                    <section class="space-y-4">
+                        <h2 class="text-2xl font-bold tracking-tight flex items-center gap-3">
+                            <span class="w-8 h-[2px] bg-black"></span>
+                            <span data-i18n="case_h_challenge">The Challenge</span>
+                        </h2>
+                        <div id="case-detail-challenge" class="text-neutral-600 leading-relaxed space-y-4 font-normal"></div>
+                    </section>
+                    <section class="space-y-4">
+                        <h2 class="text-2xl font-bold tracking-tight flex items-center gap-3">
+                            <span class="w-8 h-[2px] bg-black"></span>
+                            <span data-i18n="case_h_solution">Our Solution</span>
+                        </h2>
+                        <div id="case-detail-solution" class="text-neutral-600 leading-relaxed space-y-4 font-normal"></div>
+                    </section>
+                </div>
+                <div class="space-y-8">
+                    <div class="p-8 border border-neutral-100 rounded-[24px] bg-white shadow-sm space-y-6">
+                        <h3 class="font-bold text-xs uppercase tracking-widest text-neutral-400" data-i18n="tech_stack">Stack Used</h3>
+                        <ul class="space-y-4 text-sm font-medium">
+                            <li class="flex items-center gap-3">
+                                <span class="w-8 h-8 rounded-lg bg-neutral-100 flex items-center justify-center border border-neutral-200">
+                                    <i data-lucide="layout-template" class="w-4 h-4"></i>
+                                </span>
+                                Notion
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-8 h-8 rounded-lg bg-neutral-100 flex items-center justify-center border border-neutral-200">
+                                    <i data-lucide="bird" class="w-4 h-4"></i>
+                                </span>
+                                Lark / Feishu
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-8 h-8 rounded-lg bg-neutral-100 flex items-center justify-center border border-neutral-200">
+                                    <i data-lucide="zap" class="w-4 h-4"></i>
+                                </span>
+                                Zapier / Make
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer CTA -->
+            <div class="mt-32 p-12 bg-black text-white rounded-[32px] text-center space-y-6 relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-tr from-neutral-900 to-black z-0"></div>
+                <div class="relative z-10">
+                        <h3 class="text-3xl font-bold tracking-tight" data-i18n="case_cta_h">Ready to build a system that supports growth?</h3>
+                    <p class="text-neutral-400 max-w-lg mx-auto" data-i18n="case_cta_p">Let's redesign your workflows into a system your team can truly run on.</p>
+                    <a href="mailto:hello@pathwyze.com" class="inline-flex mt-6 px-8 py-4 bg-white text-black rounded-xl font-bold transition-transform hover:scale-105" data-i18n="cta_nav">Book a Consultation</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-shell py-24 px-6 mt-24 bg-white">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+            <div class="space-y-4 max-w-xs">
+                <div class="flex items-center gap-2">
+                    <div class="w-6 h-6 bg-black rounded flex items-center justify-center text-[8px] text-white font-bold">PW</div>
+                    <span class="font-bold tracking-tight">Pathwyze</span>
+                </div>
+                <p data-i18n="footer_desc" class="text-neutral-500 text-sm leading-relaxed">A productivity revolution,
+                    embedded in the way your team operates.</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-2 gap-16 md:gap-24">
+                <div class="space-y-6">
+                    <h5 data-i18n="foot_title_1" class="text-[10px] font-bold uppercase tracking-widest text-neutral-400">Platforms</h5>
+                    <ul class="text-sm space-y-3 font-medium text-neutral-600">
+                        <li><a href="#" data-i18n="footer_link_notion" class="hover:text-black transition-colors">Notion</a></li>
+                        <li><a href="#" data-i18n="footer_link_lark" class="hover:text-black transition-colors">Lark / Feishu</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-6">
+                    <h5 data-i18n="foot_title_3" class="text-[10px] font-bold uppercase tracking-widest text-neutral-400">Contact</h5>
+                    <ul class="text-sm space-y-3 font-medium text-neutral-600">
+                        <li><a href="mailto:hello@pathwyze.com" class="hover:text-black transition-colors flex items-center gap-2"><i data-lucide="mail" class="w-3 h-3"></i> <span data-i18n="footer_link_email">Email</span></a></li>
+                        <li><a href="#" class="hover:text-black transition-colors flex items-center gap-2"><i data-lucide="twitter" class="w-3 h-3"></i> <span data-i18n="footer_link_x">X / Twitter</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div
+            class="max-w-6xl mx-auto mt-20 pt-8 border-t border-neutral-100 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-neutral-400 font-bold uppercase tracking-widest">
+            <p>© 2026 Pathwyze Consultancy Group.</p>
+            <p data-i18n="footer_slogan" class="text-neutral-300">Build systems that compound growth.</p>
+        </div>
+    </footer>
+
+    <script src="./v2/data/translations.js"></script>
+    <script src="./v2/data/cases.js"></script>
+    <script src="./v2/data/sections.js"></script>
+    <script src="./v2/app.js"></script>
+</body>
+
+</html>
