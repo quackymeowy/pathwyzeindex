@@ -330,7 +330,7 @@
         </section>
 
         <!-- Team -->
-        <section id="team" class="section-padding max-w-6xl mx-auto">
+        <section id="team" class="section-padding !pb-16 max-w-6xl mx-auto">
             <div class="text-center mb-16 reveal">
                 <h2 data-i18n="team_title" class="text-4xl font-bold tracking-tighter mb-4">Who You Work With</h2>
                 <p data-i18n="team_sub" class="text-neutral-500">A small senior team focused on workflow redesign, system implementation, and operational clarity.</p>
@@ -374,11 +374,11 @@
                 <div class="team-card flex flex-col items-center text-center space-y-5 reveal reveal-delay-2">
                     <div
                         class="team-avatar-frame bg-neutral-100 rounded-full flex items-center justify-center overflow-hidden border border-neutral-200 shadow-sm">
-                        <img src="./images/BigSong%20Niu.png" alt="BigSong Niu" class="team-avatar-img team-avatar-bigsong" loading="lazy">
+                        <img src="./images/BigSong%20Niu.png" alt="BigSong" class="team-avatar-img team-avatar-bigsong" loading="lazy">
                     </div>
                     <div>
                         <p data-i18n="team_3_focus" class="team-focus">Operational Execution</p>
-                        <h4 data-i18n="team_3_name" class="text-xl font-bold">BigSong Niu</h4>
+                        <h4 data-i18n="team_3_name" class="text-xl font-bold">BigSong</h4>
                         <p data-i18n="team_3_role" class="text-neutral-400 text-xs uppercase tracking-widest font-bold mt-1 mb-5">Systems
                             Architect</p>
                         <a href="#" class="inline-flex items-center gap-2 px-5 py-2 btn-outline rounded-full text-[10px] font-bold">
@@ -488,37 +488,33 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer-shell py-24 px-6 mt-24 bg-white">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
-            <div class="space-y-4 max-w-xs">
+    <footer class="footer-shell pt-12 pb-20 px-6 mt-6 bg-white">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+            <div class="footer-brand max-w-xs">
                 <div class="flex items-center gap-2">
                     <div class="w-6 h-6 bg-black rounded flex items-center justify-center text-[8px] text-white font-bold">PW</div>
                     <span class="font-bold tracking-tight">Pathwyze</span>
                 </div>
-                <p data-i18n="footer_desc" class="text-neutral-500 text-sm leading-relaxed">A productivity revolution,
+                <p data-i18n="footer_desc" class="footer-copy text-neutral-500 text-sm">A productivity revolution,
                     embedded in the way your team operates.</p>
+                <p class="footer-meta text-[10px] text-neutral-400">© 2026 Pathwyze Consultancy Group.</p>
             </div>
             <div class="grid grid-cols-2 md:grid-cols-2 gap-16 md:gap-24">
-                <div class="space-y-6">
+                <div class="footer-link-group">
                     <h5 data-i18n="foot_title_1" class="text-[10px] font-bold uppercase tracking-widest text-neutral-400">Platforms</h5>
-                    <ul class="text-sm space-y-3 font-medium text-neutral-600">
+                    <ul class="footer-links text-sm font-medium text-neutral-600">
                         <li><a href="#" data-i18n="footer_link_notion" class="hover:text-black transition-colors">Notion</a></li>
                         <li><a href="#" data-i18n="footer_link_lark" class="hover:text-black transition-colors">Lark / Feishu</a></li>
                     </ul>
                 </div>
-                <div class="space-y-6">
+                <div class="footer-link-group">
                     <h5 data-i18n="foot_title_3" class="text-[10px] font-bold uppercase tracking-widest text-neutral-400">Contact</h5>
-                    <ul class="text-sm space-y-3 font-medium text-neutral-600">
+                    <ul class="footer-links text-sm font-medium text-neutral-600">
                         <li><a href="mailto:hello@pathwyze.com" class="hover:text-black transition-colors flex items-center gap-2"><i data-lucide="mail" class="w-3 h-3"></i> <span data-i18n="footer_link_email">Email</span></a></li>
                         <li><a href="#" class="hover:text-black transition-colors flex items-center gap-2"><i data-lucide="twitter" class="w-3 h-3"></i> <span data-i18n="footer_link_x">X / Twitter</span></a></li>
                     </ul>
                 </div>
             </div>
-        </div>
-        <div
-            class="max-w-6xl mx-auto mt-20 pt-8 border-t border-neutral-100 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-neutral-400 font-bold uppercase tracking-widest">
-            <p>© 2026 Pathwyze Consultancy Group.</p>
-            <p data-i18n="footer_slogan" class="text-neutral-300">Build systems that compound growth.</p>
         </div>
     </footer>
 

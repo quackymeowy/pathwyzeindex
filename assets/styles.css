@@ -470,6 +470,33 @@ body {
   background: linear-gradient(90deg, rgba(15, 23, 42, 0), rgba(15, 23, 42, 0.12), rgba(20, 184, 166, 0.18), rgba(15, 23, 42, 0.12), rgba(15, 23, 42, 0));
 }
 
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.footer-copy {
+  line-height: 1.5;
+}
+
+.footer-meta {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.footer-link-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
 .team-focus {
   margin-bottom: 0.7rem;
   font-size: 0.65rem;
