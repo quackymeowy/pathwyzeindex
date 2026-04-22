@@ -229,6 +229,67 @@ body {
   display: none;
 }
 
+#case-detail-challenge h4,
+#case-detail-solution h4,
+#case-detail-before-after-text h4,
+#case-detail-effect-text h4 {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  padding: 0.28rem 0.62rem;
+  border-radius: 999px;
+  font-size: 0.84rem;
+  font-weight: 800;
+  line-height: 1.35;
+  color: #0f766e;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: rgba(20, 184, 166, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(20, 184, 166, 0.12);
+}
+
+#case-detail-challenge h4::before,
+#case-detail-solution h4::before,
+#case-detail-before-after-text h4::before,
+#case-detail-effect-text h4::before {
+  content: '';
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 999px;
+  background: #14b8a6;
+  box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.12);
+  flex: 0 0 auto;
+}
+
+#case-detail-challenge p,
+#case-detail-solution p,
+#case-detail-before-after-text p,
+#case-detail-effect-text p {
+  margin-bottom: 0.9rem;
+}
+
+.case-inline-heading {
+  font-weight: 800;
+  color: #525252;
+}
+
+#case-detail-challenge ul,
+#case-detail-solution ul,
+#case-detail-before-after-text ul,
+#case-detail-effect-text ul {
+  margin: 0.9rem 0 1rem;
+  padding-left: 1.15rem;
+}
+
+#case-detail-challenge li,
+#case-detail-solution li,
+#case-detail-before-after-text li,
+#case-detail-effect-text li {
+  margin-bottom: 0.5rem;
+}
+
 /* Glassmorphism components */
 .glass-nav {
   background: rgba(255, 255, 255, 0.85);

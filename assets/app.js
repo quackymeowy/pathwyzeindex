@@ -57,6 +57,8 @@ function getCaseContentNormalized(caseId, lang) {
     sub: raw.sub || '',
     challengeHtml: raw.challengeHtml || '',
     solutionHtml: raw.solutionHtml || '',
+    beforeAfter: raw.beforeAfter || null,
+    effect: raw.effect || null,
   };
 }
 
@@ -294,6 +296,20 @@ function showCase(caseId) {
     formatSolutionInline(solution);
   }
 
+  // Render Before vs. After section
+  const beforeAfterSection = document.getElementById('case-before-after-section');
+  if (beforeAfterSection) {
+    if (content.beforeAfter && content.beforeAfter.rows) {
+      renderBeforeAfter(content.beforeAfter);
+    }
+  }
+
+  // Render Effect section
+  const effectContainer = document.getElementById('case-effect-container');
+  if (effectContainer) {
+    renderEffect(content.effect, effectContainer);
+  }
+
   const mainEl = PAGE.isHome ? els.homeView() : els.listView();
   const detailEl = PAGE.isHome ? els.caseView() : els.detailView();
   if (!mainEl || !detailEl) return;
@@ -304,6 +320,133 @@ function showCase(caseId) {
 
   history.replaceState(null, '', `#${caseId}`);
   window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/** Render Effect section */
+function renderEffect(effectData, container) {
+  const t = translations[getLang()] || {};
+
+  // Determine data to use: custom effectData or default translations
+  let text, items, resultLabel, resultValue;
+
+  if (effectData && effectData.items) {
+    text = effectData.text || '';
+    items = effectData.items;
+    resultLabel = effectData.result?.label || t.case_effect_result_label || 'Scalable Deal Capacity';
+    resultValue = effectData.result?.value || t.case_effect_result_value || '15-20 hours<br/>reclaimed';
+  } else {
+    text = t.case_effect_text || '';
+    items = [
+      { title: t.case_effect_item_1_title || '+ 5 mins saved', sub: t.case_effect_item_1_sub || 'per task' },
+      { title: t.case_effect_item_2_title || '+ 10 mins saved', sub: t.case_effect_item_2_sub || 'per email' },
+      { title: t.case_effect_item_3_title || '+ 2 mins saved', sub: t.case_effect_item_3_sub || 'per click' },
+    ];
+    resultLabel = t.case_effect_result_label || 'Scalable Deal Capacity';
+    resultValue = t.case_effect_result_value || '15-20 hours<br/>reclaimed';
+  }
+
+  // Update the description text
+  const textEl = document.getElementById('case-detail-effect-text');
+  if (textEl) textEl.textContent = text;
+
+  // Generate items HTML (icons are fixed, title/sub come from data)
+  const icons = ['⏱', '⚙', '→'];
+  const itemsHtml = items.map((item, idx) => `
+    <div class="bg-white px-4 py-3 rounded-xl shadow-sm border border-slate-100 flex items-center gap-3">
+      <span class="text-slate-400">${icons[idx % icons.length]}</span>
+      <div>
+        <div class="text-sm font-bold text-[#14B8A6]">${item.title}</div>
+        <div class="text-[10px] text-slate-400 uppercase">${item.sub || ''}</div>
+      </div>
+    </div>
+  `).join('');
+
+  const resultHtml = `
+    <div class="relative">
+      <div class="absolute inset-0 bg-[#14B8A6] translate-x-1 translate-y-1 rounded-2xl opacity-90"></div>
+      <div class="relative bg-white p-6 md:p-10 rounded-2xl border border-slate-100 text-center">
+        <div class="inline-block bg-[#14B8A6]/10 text-[#14B8A6] px-2 py-0.5 rounded-full text-[10px] font-bold mb-2 border border-[#14B8A6]/20">${resultLabel}</div>
+        <h4 class="text-2xl md:text-4xl font-black text-[#14B8A6] tracking-tight">${resultValue}</h4>
+      </div>
+    </div>
+  `;
+
+  container.innerHTML = `
+    <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
+      <div class="flex flex-col gap-3 w-full md:w-auto">${itemsHtml}</div>
+      <div class="text-2xl text-[#14B8A6] opacity-40 flex items-center justify-center">=</div>
+      ${resultHtml}
+    </div>
+  `;
+}
+
+/** Render Before vs. After table */
+function renderBeforeAfter(data) {
+  const textEl = document.getElementById('case-detail-before-after-text');
+  if (textEl && data.text) {
+    textEl.textContent = data.text;
+  }
+
+  const rows = data.rows || [];
+
+  // Render desktop table
+  const metricsCol = document.querySelector('#case-before-after-section .hidden.md\\:grid .col-span-4:first-child');
+  const beforeCol = document.querySelector('#case-before-after-section .hidden.md\\:grid .col-span-4:nth-child(2)');
+  const afterCol = document.querySelector('#case-before-after-section .hidden.md\\:grid .col-span-4:last-child .rounded-\\[14px\\]');
+
+  if (metricsCol && beforeCol && afterCol) {
+    // Keep the header, remove old rows
+    const metricsHeader = metricsCol.querySelector('[data-i18n="case_matrix_metrics"]');
+    const beforeHeader = beforeCol.querySelector('[data-i18n="case_matrix_before_title"]');
+    const afterHeader = afterCol.querySelector('[data-i18n="case_matrix_after_title"]');
+
+    metricsCol.innerHTML = '';
+    beforeCol.innerHTML = '';
+    afterCol.innerHTML = '';
+
+    if (metricsHeader) metricsCol.appendChild(metricsHeader);
+    if (beforeHeader) beforeCol.appendChild(beforeHeader);
+    if (afterHeader) afterCol.appendChild(afterHeader);
+
+    // Add new rows
+    rows.forEach((row, index) => {
+      const isLast = index === rows.length - 1;
+
+      const metricDiv = document.createElement('div');
+      metricDiv.className = `text-sm font-bold text-slate-700 py-4 ${isLast ? 'last:border-0' : 'border-b border-slate-50'} h-[56px] flex items-center justify-center text-center`;
+      metricDiv.textContent = row.metric;
+      metricsCol.appendChild(metricDiv);
+
+      const beforeDiv = document.createElement('div');
+      beforeDiv.className = `flex items-center gap-2 py-4 text-slate-500 text-xs font-medium ${isLast ? 'last:border-0' : 'border-b border-slate-200/50'} h-[56px] justify-center`;
+      beforeDiv.innerHTML = `<span class="text-amber-400">⚠</span><span>${row.before}</span>`;
+      beforeCol.appendChild(beforeDiv);
+
+      const afterDiv = document.createElement('div');
+      afterDiv.className = `flex items-center gap-2 py-4 text-slate-900 font-bold text-sm ${isLast ? 'last:border-0' : 'border-b border-neutral-50'} h-[56px] justify-center`;
+      afterDiv.innerHTML = `<span class="text-[#14B8A6]">✓</span><span>${row.after}</span>`;
+      afterCol.appendChild(afterDiv);
+    });
+  }
+
+  // Render mobile table
+  const mobileContainer = document.querySelector('#case-before-after-section .md\\:hidden');
+  if (mobileContainer) {
+    mobileContainer.innerHTML = '';
+
+    rows.forEach((row) => {
+      const card = document.createElement('div');
+      card.className = 'flex flex-col bg-slate-50 rounded-xl p-4 border border-slate-100';
+      card.innerHTML = `
+        <div class="text-[10px] font-bold text-slate-400 uppercase mb-2">${row.metric}</div>
+        <div class="grid grid-cols-2 gap-2">
+          <div class="text-xs text-slate-500"><span data-i18n="case_label_before">Before</span>: <span class="text-amber-400">⚠</span> <span>${row.before}</span></div>
+          <div class="text-xs font-bold text-[#14B8A6]"><span data-i18n="case_label_after">After</span>: ✓ <span>${row.after}</span></div>
+        </div>
+      `;
+      mobileContainer.appendChild(card);
+    });
+  }
 }
 
 // ─── Hash routing ───────────────────────────────────────────────────────────
